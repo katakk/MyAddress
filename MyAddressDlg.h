@@ -24,4 +24,5 @@ void CMyAddressDlg::MyAddress();
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
 };

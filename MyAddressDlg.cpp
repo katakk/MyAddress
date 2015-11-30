@@ -90,6 +90,7 @@ void CMyAddressDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMyAddressDlg, CDialog)
 	//}}AFX_MSG_MAP
 	ON_WM_TIMER()
+	ON_WM_WINDOWPOSCHANGING()
 END_MESSAGE_MAP()
 
 BOOL CMyAddressDlg::OnInitDialog()
@@ -105,4 +106,11 @@ void CMyAddressDlg::OnTimer(UINT nIDEvent)
 {
 	MyAddress();
 	CDialog::OnTimer(nIDEvent);
+}
+
+void CMyAddressDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
+{
+	lpwndpos->flags &= ~SWP_SHOWWINDOW;
+	lpwndpos->y = 0;
+	CDialog::OnWindowPosChanging(lpwndpos);
 }
